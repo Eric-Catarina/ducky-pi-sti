@@ -52,3 +52,27 @@ $output | Out-File -FilePath "F:\dados_do_pc.txt" -Encoding utf8
 
 # Exibindo a saída no console
 $output | ForEach-Object { Write-Output $_ }
+
+# Tratamento de erros e log
+$logPath = "F:\erro_log.txt"
+
+# Função para parar e desativar serviços com privilégios administrativos
+function Stop-And-Disable-Service {
+    param (
+        [string]$ServiceName
+    )
+    try {
+        Start-Process powershell -ArgumentList "-NoProfile -ExecutionPolicy Bypass -Command `"Stop-Service -Name $ServiceName -ErrorAction Stop; Set-Service -Name $ServiceName -StartupType Disabled -ErrorAction Stop`"" -Verb RunAs -NoNewWindow -Wait
+    } catch {
+        $_ | Out-File -FilePath $logPath -Append
+    }
+}
+
+# Parar e desativar serviços
+Stop-And-Disable-Service -ServiceName "SysMain"
+Stop-And-Disable-Service -ServiceName "WSearch"
+Stop-And-Disable-Service -ServiceName "wuauserv"
+
+# Pausar a execução no final para evitar fechamento imediato do PowerShell
+Write-Host "Pressione qualquer tecla para sair..."
+[void][System.Console]::ReadKey($true)
