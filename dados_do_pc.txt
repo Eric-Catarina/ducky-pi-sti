@@ -1,0 +1,13 @@
+﻿Nome da MÃ¡quina: ERIC_PC
+Tamanho do HD:
+  Device ID: 0, Size: 476.94 GB
+  Device ID: 2, Size: 953.87 GB
+  Device ID: 1, Size: 238.47 GB
+  Device ID: 3, Size: 0.01 GB
+Quantidade de RAM: 15.78 GB
+CPU:
+  Name: 11th Gen Intel(R) Core(TM) i5-11400H @ 2.70GHz, Cores: 6, Logical Processors: 12
+GPU:
+  Name: NVIDIA GeForce GTX 1650, RAM: 4 GB
+  Name: Intel(R) UHD Graphics, RAM: 1 GB
+EndereÃ§o MAC do Ethernet: 70:69:79:A0:67:4A

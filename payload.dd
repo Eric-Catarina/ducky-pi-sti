@@ -1,0 +1,13 @@
+REM Title: Automatizador STI
+REM Author: Éric-Catarina
+REM Description: Automatiza as tarefas repetitivas do trabalho de manutenção e otimização do computador.
+REM Target: Windows 10 já formatado, e particionado.
+REM Version: 1.0
+REM Category: Trabalho
+REM Source: https://github.com/UberGuidoZ/OMG-Payloads
+REM
+DELAY 1500
+GUI r
+DELAY 500
+STRING powershell -NoProfile -ExecutionPolicy Bypass -File F:\get_dados_pc.ps1
+ENTER
