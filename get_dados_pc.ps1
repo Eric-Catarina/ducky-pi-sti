@@ -37,7 +37,7 @@ $ethernetMAC = Get-WmiObject Win32_NetworkAdapterConfiguration | Where-Object { 
 
 # Construindo a saída
 $output = @()
-$output += "Nome da Máquina: $machineName"
+$output += "Nome da Maquina: $machineName"
 $output += "Tamanho do HD:"
 $diskSize | ForEach-Object { $output += "  Device ID: $($_.DeviceId), Size: $($_.SizeGB) GB" }
 $output += "Quantidade de RAM: $ramSize GB"
@@ -45,7 +45,7 @@ $output += "CPU:"
 $cpuInfo | ForEach-Object { $output += "  Name: $($_.Name), Cores: $($_.NumberOfCores), Logical Processors: $($_.NumberOfLogicalProcessors)" }
 $output += "GPU:"
 $gpuInfo | ForEach-Object { $output += "  Name: $($_.Name), RAM: $($_.RAMGB) GB" }
-$output += "Endereço MAC do Ethernet: $ethernetMAC"
+$output += "Endereco MAC do Ethernet: $ethernetMAC"
 
 # Salvando a saída em um arquivo
 $output | Out-File -FilePath "F:\dados_do_pc.txt" -Encoding utf8
@@ -72,6 +72,17 @@ function Stop-And-Disable-Service {
 Stop-And-Disable-Service -ServiceName "SysMain"
 Stop-And-Disable-Service -ServiceName "WSearch"
 Stop-And-Disable-Service -ServiceName "wuauserv"
+
+
+$desktopPath = [System.Environment]::GetFolderPath('Desktop')
+$shortcutPath = Join-Path -Path $desktopPath -ChildPath "Comum.lnk"
+$targetPath = "\\10.122.99.246\Comum"
+
+$shell = New-Object -ComObject WScript.Shell
+$shortcut = $shell.CreateShortcut($shortcutPath)
+$shortcut.TargetPath = $targetPath
+$shortcut.Save()
+
 
 # Pausar a execução no final para evitar fechamento imediato do PowerShell
 Write-Host "Pressione qualquer tecla para sair..."
