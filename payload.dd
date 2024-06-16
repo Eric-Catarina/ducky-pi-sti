@@ -51,6 +51,10 @@ ALT y
 DELAY 50
 ALT F4
 
+
+VAR $index_servico = 1
+
+REM Desabilitando os Serviços
 REM Desabilitando os Serviços
 REM SysMain:
 
@@ -245,6 +249,8 @@ DELAY 500
 TAB
 TAB 
 TAB
+DELAY 50
+
 DOWN
 DOWN
 TAB
@@ -289,17 +295,135 @@ DELAY 50
 ENTER
 DELAY 200
 F5
+DELAY 50
+ALT F4
 
-REM Configurando o navegador chrome:
+
+FUNCTION configura_chrome():
+    REM Configurando o navegador chrome:
+    DELAY 500
+    GUI
+    DELAY 1000
+    STRING google
+    DELAY 500
+    ENTER
+    DELAY 2000
+    CTRL E
+    DELAY 50
+    BACKSPACE
+    DELAY 50
+    STRING chrome://settings/appearance
+    ENTER
+    DELAY 500
+    TAB 
+    TAB
+    TAB 
+    TAB
+    TAB
+    DELAY 500
+    SPACE
+    DELAY 500
+    TAB
+    DELAY 500
+    DOWN
+    DELAY 500
+    TAB
+    DELAY 500
+    STRING 10.122.99.223
+    DELAY 500
+    ENTER
+    DELAY 1000
+    CTRL E
+    DELAY 50
+    BACKSPACE
+    DELAY 50
+    STRING chrome://settings/onStartup
+    ENTER
+    DELAY 500
+    TAB 
+    TAB
+    DELAY 500
+    DOWN    
+    DOWN
+    DELAY 500
+    TAB
+    DELAY 500
+    ENTER
+    DELAY 500
+    TAB
+    STRING 10.122.99.223
+    ENTER
+    DELAY 500
+    ENTER 
+    TAB 
+    STRING https://cmbh.eb.mil.br/
+    ENTER
+    DELAY 500
+    ENTER
+    TAB
+    STRING https://cporbh.eb.mil.br/
+    ENTER
+END_FUNCTION
+
+
+
+REM Configurando o navegador Firefox:
 DELAY 500
 GUI
 DELAY 1000
-STRING google
+STRING firefox
+DELAY 2000
+ENTER
 DELAY 2000
 CTRL E
 DELAY 50
 BACKSPACE
 DELAY 50
-STRING chrome://settings/appearance
+STRING about:preferences#home
 ENTER
+DELAY 500
+TAB
+DELAY 50
+
+DOWN
+DELAY 50
+
+TAB
+DELAY 50
+
+DELAY 100
+CTRL a
+BACKSPACE
+STRING 10.122.99.223|https://cmbh.eb.mil.br/|https://cporbh.eb.mil.br/
+DELAY 300
+
+ALT F4
+GUI
+DELAY 1000
+STRING firefox
+DELAY 1000
+ENTER
+DELAY 1000
+
+CONTROL TAB
+DELAY 100
+CONTROL TAB
+DELAY 200
+TAB
+DELAY 50
+ENTER
+DELAY 100
+TAB
+DELAY 50
+TAB
+DELAY 50
+TAB
+DELAY 50
+TAB
+DELAY 50
+ENTER
+DELAY 200
+F5
+DELAY 100
+ALT F4
 

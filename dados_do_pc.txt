@@ -1,4 +1,4 @@
-﻿Nome da MÃ¡quina: ERIC_PC
+﻿Nome da Maquina: ERIC_PC
 Tamanho do HD:
   Device ID: 0, Size: 476.94 GB
   Device ID: 2, Size: 953.87 GB
@@ -10,4 +10,4 @@ CPU:
 GPU:
   Name: NVIDIA GeForce GTX 1650, RAM: 4 GB
   Name: Intel(R) UHD Graphics, RAM: 1 GB
-EndereÃ§o MAC do Ethernet: 70:69:79:A0:67:4A
+Endereco MAC do Ethernet: 70:69:79:A0:67:4A
